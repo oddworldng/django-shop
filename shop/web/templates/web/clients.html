@@ -1,0 +1,25 @@
+{% extends 'web/html.html' %}
+{% load static %}
+
+{% block body %}
+<header>{% include 'web/header.html' %}</header>
+{% include 'web/navbar.html' %}
+<main>
+  <h1>Clientes</h1>
+  <table>
+    {% for client in clients %}
+        <tr>
+          <td>{{ client.first_name }}</td>
+          <td>{{ client.last_name }}</td>
+          <td><a href="/clientes/{{client.id}}/historial/">Ver historial de pedidos</a></td>
+        </tr>
+    {% endfor %}
+  </table>
+</main>
+<footer>{% include 'web/footer.html' %}</footer>
+{% endblock %}
+
+{% block scripts %}
+{{ block.super }}
+<script src="{% static 'web/scripts/web.js' %}"></script>
+{% endblock %}

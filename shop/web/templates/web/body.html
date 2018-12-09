@@ -1,0 +1,16 @@
+{% extends 'web/html.html' %}
+{% load static %}
+
+{% block title %}Local e-Commerce{% endblock %}
+
+{% block body %}
+<header>{% include 'web/header.html' %}</header>
+{% include 'web/navbar.html' %}
+<main>{% block main %}{% endblock %}</main>
+<footer>{% include 'web/footer.html' %}</footer>
+{% endblock %}
+
+{% block scripts %}
+{{ block.super }}
+<script src="{% static 'web/scripts/web.js' %}"></script>
+{% endblock %}

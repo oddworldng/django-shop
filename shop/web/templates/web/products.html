@@ -1,0 +1,30 @@
+{% extends 'web/html.html' %}
+{% load static %}
+
+{% block body %}
+<header>{% include 'web/header.html' %}</header>
+{% include 'web/navbar.html' %}
+<main>
+  <table>
+    {% for product in products %}
+        <tr>
+          <td>
+            <a href="/producto/{{product.reference}}"><img src="/static/web/img/{{product.img}}" class="img-fluid img-product"></a>
+          </td>
+          <td>
+          <h4 class="center-text">{{ product.title }}</h4>
+
+          <p class="center-text">Precio: {{ product.price }} €</p>
+          <p class="center-text"><a href="/producto/{{product.reference}}">Ver más detalles</a></p>
+          </td>
+        </tr>
+    {% endfor %}
+  </table>
+</main>
+<footer>{% include 'web/footer.html' %}</footer>
+{% endblock %}
+
+{% block scripts %}
+{{ block.super }}
+<script src="{% static 'web/scripts/web.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'web/html.html' %}
+{% load static %}
+
+{% block body %}
+<header>{% include 'web/header.html' %}</header>
+{% include 'web/navbar.html' %}
+<main>
+  {% for product in products %}
+    {% if product.reference == reference %}
+    <div class="row">
+      <div class="col-md-4">
+        <img src="/static/web/img/{{product.img}}" class="img-fluid img-home">
+      </div>
+      <div class="col-md-4">
+        <h1>{{ product.title }}</h1>
+        <h4>Referencia: {{ product.reference }}</h4>
+      </div>
+      <div class="col-md-4">
+        <h4>Características del producto</h4>
+        <p>Precio: {{ product.price }} €</p>
+        {% if product.stock %}<p class="stock-disponible">Stock disponible</p>{% else %}<p class="stock-no-disponible">No disponible</p>{% endif %}
+        {% if product.offer %}<p class="producto-oferta">¡Producto en oferta!</p>{% endif %}
+        <p>Cantidad disponible: {{ product.quantity }}</p>
+        <button type="button" class="btn btn-info"> Añadir al carrito
+        </button>
+      </div>
+    </div>
+    {% endif %}
+  {% endfor %}
+</main>
+<footer>{% include 'web/footer.html' %}</footer>
+{% endblock %}
+
+{% block scripts %}
+{{ block.super }}
+<script src="{% static 'web/scripts/web.js' %}"></script>
+{% endblock %}

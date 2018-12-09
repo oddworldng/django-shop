@@ -1,0 +1,27 @@
+{% extends 'web/html.html' %}
+{% load static %}
+
+{% block body %}
+<header>{% include 'web/header.html' %}</header>
+{% include 'web/navbar.html' %}
+<main>
+  <h1>Historial de pedidos</h1>
+  <table>
+    {% for cart in carts %}
+      <tr>
+        <td>Cliente: {{ client.first_name }} {{ client.last_name }}</td>
+      </tr>
+      <tr>
+        <td>Producto: {{ cart.product }}</td>
+      </tr>
+      <tr><td>-------------------------------------------------------</td></tr>
+    {% endfor %}
+  </table>
+</main>
+<footer>{% include 'web/footer.html' %}</footer>
+{% endblock %}
+
+{% block scripts %}
+{{ block.super }}
+<script src="{% static 'web/scripts/web.js' %}"></script>
+{% endblock %}
