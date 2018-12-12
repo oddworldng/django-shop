@@ -20,9 +20,14 @@ make run
 make mm
 ```
 
-## Migrations
+## Migrate
 ```
 make m
+```
+
+## Remove (clean) venv
+```
+make clean
 ```
 
 ## How to use
