@@ -70,10 +70,13 @@ def cart_product(request, reference):
     return render(request, "web/cart_product.html", context)
 
 def cart(request, reference, code):
-    #product = Product.objects.get(reference=reference)
-    #cart = Cart(client=code, product=product.title)
-    #cart.save()
+    # Save cart
+    product = Product.objects.get(reference=reference)
+    code_cart = Client.objects.get(id=code)
+    cart = Cart(client=code_cart, product=product)
+    cart.save()
 
+    # Show view
     clients = Client.objects.all()
     products = Product.objects.all()
     context = {
