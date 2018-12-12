@@ -5,17 +5,22 @@
 <header>{% include 'web/header.html' %}</header>
 {% include 'web/navbar.html' %}
 <main>
-  <h1>Clientes</h1>
+  <h1>Carrito</h1>
+  {% for product in products %}
+    {% if product.reference == reference %}
+      <p>Se ha añadido el producto <strong>{{product.title}}</strong> al carrito.</p>
+    {% endif %}
+  {% endfor %}
+  <ins><p>Selecciona el cliente que lo va a comprar: </p></ins>
   <table>
     {% for client in clients %}
         <tr>
           <td>{{ client.first_name }}</td>
           <td>{{ client.last_name }}</td>
-          <td>Más info <a href="/clientes/{{ client.id }}/">[+]</a></td>
+          <td><a href="/carrito/{{ reference }}/{{ client.id }}/">Seleccionar</a></td>
         </tr>
     {% endfor %}
   </table>
-  <td><a href="/clientes/historial/">Ver historial de pedidos</a></td>
 </main>
 <footer>{% include 'web/footer.html' %}</footer>
 {% endblock %}

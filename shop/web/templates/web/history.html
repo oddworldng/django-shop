@@ -8,13 +8,15 @@
   <h1>Historial de pedidos</h1>
   <table>
     {% for cart in carts %}
-      <tr>
-        <td>Cliente: {{ client.first_name }} {{ client.last_name }}</td>
-      </tr>
-      <tr>
-        <td>Producto: {{ cart.product }}</td>
-      </tr>
-      <tr><td>-------------------------------------------------------</td></tr>
+        <tr>
+          <td>Cliente (id): <a href="/clientes/{{ cart.client }}">{{ cart.client }}</a></td>
+        </tr>
+        <tr>
+          <td>Producto: {{ cart.product }}</td>
+        </tr>
+        <tr>
+          <td>-------------------------------------------------------</td>
+        </tr>
     {% endfor %}
   </table>
 </main>

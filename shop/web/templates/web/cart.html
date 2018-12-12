@@ -1,0 +1,27 @@
+{% extends 'web/html.html' %}
+{% load static %}
+
+{% block body %}
+<header>{% include 'web/header.html' %}</header>
+{% include 'web/navbar.html' %}
+<main>
+  <h1>¡Compra realiada!</h1>
+  {% for client in clients %}
+    {% if client.id == code %}
+      {% for product in products %}
+        {% if product.reference == reference %}
+          <p>El cliente <strong>{{ client.first_name }} {{ client.last_name }}</strong>, ha comprado el producto <strong>{{ product.title }}</strong>.</p>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+  <p>Ver <a href="/clientes/historial/">historial de pedidos</a></p>
+
+</main>
+<footer>{% include 'web/footer.html' %}</footer>
+{% endblock %}
+
+{% block scripts %}
+{{ block.super }}
+<script src="{% static 'web/scripts/web.js' %}"></script>
+{% endblock %}

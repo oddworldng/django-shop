@@ -29,26 +29,57 @@ def products(request):
     return render(request, "web/products.html", context)
 
 def product(request, reference):
-        products = Product.objects.all()
-        context = {
-            'products': products,
-            'reference': reference,
-        }
-        return render(request, "web/product.html", context)
+    products = Product.objects.all()
+    context = {
+        'products': products,
+        'reference': reference,
+    }
+    return render(request, "web/product.html", context)
 
 def clients(request):
-        clients = Client.objects.all()
-        context = {
-            'clients': clients,
-        }
-        return render(request, "web/clients.html", context)
+    clients = Client.objects.all()
+    context = {
+        'clients': clients,
+    }
+    return render(request, "web/clients.html", context)
 
-def history(request, code):
-        client = Client.objects.get(id=code)
-        carts = Cart.objects.all()
-        context = {
-            'client': client,
-            'carts': carts,
-            'code': code,
-        }
-        return render(request, "web/history.html", context)
+def client(request, code):
+    client = Client.objects.get(id=code)
+    context = {
+        'client': client,
+    }
+    return render(request, "web/client.html", context)
+
+def history(request):
+    client = Client.objects.all()
+    carts = Cart.objects.all()
+    context = {
+        'client': client,
+        'carts': carts,
+    }
+    return render(request, "web/history.html", context)
+
+def cart_product(request, reference):
+    clients = Client.objects.all()
+    products = Product.objects.all()
+    context = {
+        'clients': clients,
+        'products': products,
+        'reference': reference,
+    }
+    return render(request, "web/cart_product.html", context)
+
+def cart(request, reference, code):
+    #product = Product.objects.get(reference=reference)
+    #cart = Cart(client=code, product=product.title)
+    #cart.save()
+
+    clients = Client.objects.all()
+    products = Product.objects.all()
+    context = {
+        'clients': clients,
+        'products': products,
+        'code': code,
+        'reference': reference,
+    }
+    return render(request, "web/cart.html", context)
