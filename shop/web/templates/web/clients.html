@@ -6,16 +6,24 @@
 {% include 'web/navbar.html' %}
 <main>
   <h1>Clientes</h1>
-  <table>
-    {% for client in clients %}
-        <tr>
-          <td>{{ client.first_name }}</td>
-          <td>{{ client.last_name }}</td>
-          <td>Más info <a href="/clientes/{{ client.id }}/">[+]</a></td>
-        </tr>
-    {% endfor %}
-  </table>
-  <td><a href="/clientes/historial/">Ver historial de pedidos</a></td>
+  <div class="container">
+    <div class="row">
+      {% for client in clients %}
+          <div class="col-md-4 box-border">
+            <div class="center-text">
+              <a href="/clientes/{{ client.id }}/"><i class="far fa-user client-icon"></i></a>
+            </div>
+            <div class="center-text">
+              <a href="/clientes/{{ client.id }}/"><p>{{ client.first_name }} {{ client.last_name }}</p></a>
+            </div>
+
+          </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="center-text">
+    <a href="/clientes/historial/"><button type="button" class="btn btn-info">Ver historial de pedidos</button></a>
+  </div>
 </main>
 <footer>{% include 'web/footer.html' %}</footer>
 {% endblock %}
