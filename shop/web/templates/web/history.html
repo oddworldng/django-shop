@@ -6,19 +6,20 @@
 {% include 'web/navbar.html' %}
 <main>
   <h1>Historial de pedidos</h1>
-  <table>
+  <div class="container">
     {% for cart in carts %}
-        <tr>
-          <td>Cliente (id): <a href="/clientes/{{ cart.client }}">{{ cart.client }}</a></td>
-        </tr>
-        <tr>
-          <td>Producto: {{ cart.product }}</td>
-        </tr>
-        <tr>
-          <td>-------------------------------------------------------</td>
-        </tr>
+      <div class="row">
+        <div class="col-md-12 box-border">
+          <div>
+            <p>Cliente (id): <a href="/clientes/{{ cart.client }}">{{ cart.client }}</a></p>
+          </div>
+          <div>
+            <p>Producto: {{ cart.product }}</p>
+          </div>
+        </div>
+      </div>
     {% endfor %}
-  </table>
+  </div>
 </main>
 <footer>{% include 'web/footer.html' %}</footer>
 {% endblock %}
