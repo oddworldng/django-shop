@@ -6,12 +6,22 @@
 {% include 'web/navbar.html' %}
 <main>
   <h1>Cliente</h1>
-  <table>
-        <tr>
-          <td>{{ client.first_name }}</td>
-          <td>{{ client.last_name }}</td>
-        </tr>
-  </table>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4 box-border">
+        <div class="center-text">
+          <a href="/clientes/{{ client.id }}/"><i class="far fa-user client-icon"></i></a>
+        </div>
+        <div class="center-text">
+          <a href="/clientes/{{ client.id }}/"><p>{{ client.first_name }} {{ client.last_name }}</p></a>
+        </div>
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div>
+  </div>
 </main>
 <footer>{% include 'web/footer.html' %}</footer>
 {% endblock %}
