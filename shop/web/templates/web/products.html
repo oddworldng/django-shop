@@ -9,14 +9,14 @@
     {% for product in products %}
         <tr>
           <td>
-            <a href="/producto/{{product.reference}}"><img src="/static/web/img/{{product.img}}" class="img-fluid img-product"></a>
+            <a href="/producto/{{ product.reference }}"><img src="/static/web/img/{{ product.img }}" class="img-fluid img-product"></a>
           </td>
           <td>
           <h4 class="center-text">{{ product.title }}</h4>
 
           <p class="center-text">Precio: {{ product.price }} €</p>
           <div class="center-text">
-            <a href="/producto/{{product.reference}}"><button type="button" class="btn btn-info">Ver más detalles</button></a>
+            <a href="/producto/{{ product.reference }}"><button type="button" class="btn btn-info">Ver más detalles</button></a>
           </div>
           </td>
         </tr>
