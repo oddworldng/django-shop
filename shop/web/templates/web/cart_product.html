@@ -8,19 +8,31 @@
   <h1>Carrito</h1>
   {% for product in products %}
     {% if product.reference == reference %}
-      <p>Se ha añadido el producto <strong>{{product.title}}</strong> al carrito.</p>
+      <p class="center-text">Se ha añadido el producto <strong>{{ product.title }}</strong> al carrito.</p>
+      <div class="container">
+          <div class="row box-border">
+            <div class="col-md-6">
+              <img src="/static/web/img/{{ product.img }}" class="img-fluid img-product">
+            </div>
+        </div>
+      </div>
     {% endif %}
   {% endfor %}
-  <ins><p>Selecciona el cliente que lo va a comprar: </p></ins>
-  <table>
+  <ins><p class="center-text">Selecciona el cliente que lo va a comprar: </p></ins>
+  <div class="container">
     {% for client in clients %}
-        <tr>
-          <td>{{ client.first_name }}</td>
-          <td>{{ client.last_name }}</td>
-          <td><a href="/carrito/{{ reference }}/{{ client.id }}/">Seleccionar</a></td>
-        </tr>
+      <div class="row">
+        <div class="col-md-12 box-border">
+          <div>
+            <p>{{ client.first_name }} {{ client.last_name }}<a href="/clientes/{{ cart.client }}">{{ cart.client }}</a></p>
+          </div>
+          <div>
+            <a href="/carrito/{{ reference }}/{{ client.id }}"><button type="button" class="btn btn-info">Seleccionar</button></a>
+          </div>
+        </div>
+      </div>
     {% endfor %}
-  </table>
+  </div>
 </main>
 <footer>{% include 'web/footer.html' %}</footer>
 {% endblock %}

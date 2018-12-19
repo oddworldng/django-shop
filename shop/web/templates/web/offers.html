@@ -13,7 +13,9 @@
           <h2 class="center-text">{{ product.title }}</h2>
           <a href="/producto/{{product.reference}}"><img src="/static/web/img/{{product.img}}" class="img-fluid img-home"></a>
           <p class="center-text">Precio: {{ product.price }} €</p>
-          <p class="center-text"><a href="/producto/{{product.reference}}">Ver más detalles</a></p>
+          <div class="center-text">
+            <a href="/producto/{{product.reference}}"><button type="button" class="btn btn-info">Ver más detalles</button></a>
+          </div>
         </div>
       {% endif %}
     {% endfor %}

@@ -21,7 +21,7 @@
         {% if product.stock %}<p class="stock-disponible">Stock disponible</p>{% else %}<p class="stock-no-disponible">No disponible</p>{% endif %}
         {% if product.offer %}<p class="producto-oferta">¡Producto en oferta!</p>{% endif %}
         <p>Cantidad disponible: {{ product.quantity }}</p>
-        <a href="/carrito/{{ product.reference }}/"><button type="button" class="btn btn-info"> Añadir al carrito</button></a>
+        <a href="/carrito/{{ product.reference }}/"><button type="button" class="btn btn-success"> Añadir al carrito</button></a>
       </div>
     </div>
     {% endif %}
